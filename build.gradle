@@ -5,9 +5,11 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
-application {
-    mainClassName = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "NULL"
-}
+// application {
+//     mainClassName = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "NULL"
+// }
+
+mainClassName = 'analyzer.PriceAnalyzerApp'
 
 group = 'ru'
 version = '0.0.1-SNAPSHOT'
