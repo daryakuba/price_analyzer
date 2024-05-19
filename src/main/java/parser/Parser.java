@@ -21,8 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class Parser {
     public static void sentReq(String body) throws IOException {
         System.out.println("Sending base add");
-        URL url = new URL("http://localhost:8080/base/add");
-
+        URL url = new URL("https://" + System.getenv("API_URL") + "/base/add");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
