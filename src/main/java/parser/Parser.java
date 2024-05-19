@@ -50,49 +50,49 @@ public class Parser {
                     Date currentDate = new Date();
                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     String date = formatter.format(currentDate);
-                    //ГЛОБУС
-                    System.out.println("Started Globus parsing");
                     Elements[] elems = new Elements[3];
-                    for (int i = 1; i < 10; i++) {
-                        //страница
-                        System.out.println("\tRequested " + i + " page");
-                        String page = "https://www.globus.ru/catalog/molochnye-produkty-syr-yaytsa/moloko-i-molochnye-produkty/moloko/" + "?page=" + i;
-                        Document document = Jsoup.parse(new URL(page).openStream(), "UTF-8", page);
-                        //цена
-                        elems[0] = document.getElementsByClass("pim-list__item-price-actual-main");
-                        //название
-                        elems[1] = document.getElementsByClass("pim-list__item-title js-crop-text");
-
-                        for (int k = 0; k < (elems[1].size() - 1); k++) {
-                            if (elems[1].get(k).text().equals("Молоко козье G-balance отборное высшего качества 3,5-4,8%, 310 мл")) {
-                                try {
-                                    String body = "{\"price\": " + Integer.parseInt(elems[0].get(k).text()) + ", \"time\": \"" + date + "\", \"product\":{\"id\": 3}, \"shop\": {\"id\": 12}}";
-                                    sentReq(body);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-                            }
-                            if (elems[1].get(k).text().equals("Молоко цельное Эконива 3,3-6%, 1 л")) {
-                                try {
-                                    String body = "{\"price\": " + Integer.parseInt(elems[0].get(k).text()) + ", \"time\": \"" + date + "\", \"product\":{\"id\": 4}, \"shop\": {\"id\": 12}}";
-                                    sentReq(body);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-                            }
-                            if (elems[1].get(k).text().equals("Молоко пастеризованное Углече Поле органическое 3,2%, 1 л")) {
-                                try {
-                                    String body = "{\"price\": " + Integer.parseInt(elems[0].get(k).text()) + ", \"time\": \"" + date + "\", \"product\":{\"id\": 7}, \"shop\": {\"id\": 12}}";
-                                    sentReq(body);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                                break;
-                            }
-                        }
-                    }
+                    //ГЛОБУС
+//                    System.out.println("Started Globus parsing");
+//                    for (int i = 1; i < 10; i++) {
+//                        //страница
+//                        System.out.println("\tRequested " + i + " page");
+//                        String page = "https://www.globus.ru/catalog/molochnye-produkty-syr-yaytsa/moloko-i-molochnye-produkty/moloko/" + "?page=" + i;
+//                        Document document = Jsoup.parse(new URL(page).openStream(), "UTF-8", page);
+//                        //цена
+//                        elems[0] = document.getElementsByClass("pim-list__item-price-actual-main");
+//                        //название
+//                        elems[1] = document.getElementsByClass("pim-list__item-title js-crop-text");
+//
+//                        for (int k = 0; k < (elems[1].size() - 1); k++) {
+//                            if (elems[1].get(k).text().equals("Молоко козье G-balance отборное высшего качества 3,5-4,8%, 310 мл")) {
+//                                try {
+//                                    String body = "{\"price\": " + Integer.parseInt(elems[0].get(k).text()) + ", \"time\": \"" + date + "\", \"product\":{\"id\": 3}, \"shop\": {\"id\": 12}}";
+//                                    sentReq(body);
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//                            }
+//                            if (elems[1].get(k).text().equals("Молоко цельное Эконива 3,3-6%, 1 л")) {
+//                                try {
+//                                    String body = "{\"price\": " + Integer.parseInt(elems[0].get(k).text()) + ", \"time\": \"" + date + "\", \"product\":{\"id\": 4}, \"shop\": {\"id\": 12}}";
+//                                    sentReq(body);
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//                            }
+//                            if (elems[1].get(k).text().equals("Молоко пастеризованное Углече Поле органическое 3,2%, 1 л")) {
+//                                try {
+//                                    String body = "{\"price\": " + Integer.parseInt(elems[0].get(k).text()) + ", \"time\": \"" + date + "\", \"product\":{\"id\": 7}, \"shop\": {\"id\": 12}}";
+//                                    sentReq(body);
+//                                } catch (Exception e) {
+//                                    e.printStackTrace();
+//                                }
+//                                break;
+//                            }
+//                        }
+//                    }
                     //ПЕРЕКРЕСТОК
                     System.out.println("Started Perekrestok parsing");
                     //страница
